@@ -1,0 +1,55 @@
+<script type="text/javascript">
+    RED.nodes.registerType('node-red-contrib-nulli-neo4j',{
+        category: 'Nulli',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""},
+            url: {value:""},
+            username: {value:""},
+            password: {value:""},
+            query: {value: ""}
+        },
+        inputs:1,
+        outputs:2,
+        icon: "neo4j.png",
+        label: function() {
+            return this.name||"node-red-contrib-nulli-neo4j";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="node-red-contrib-nulli-neo4j">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+        <br/>
+        <label for="node-input-url"><i class="icon-tag"></i>URL</label>
+        <input type="text" id="node-input-url" placeholder="bolt://localhost:7687">
+        <br/>
+        <label for="node-input-username"><i class="icon-tag"></i>Username</label>
+        <input type="text" id="node-input-username" placeholder="neo4j">
+        <br/>
+        <label for="node-input-password"><i class="icon-tag"></i>Password</label>
+        <input type="password" id="node-input-password" placeholder="test1234">
+        <br/>
+        <label for="node-input-query"><i class="icon-tag"></i>Cypher Query (opt)</label>
+        <input type="text" id="node-input-query" placeholder="MATCH (o:Object {attrib: 'value'}) RETURN o">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="node-red-contrib-nulli-neo4j">
+    <p>A Neo4j cypher query node</p>
+
+    <p>Neo4J cypher node that lets you run generic cypher queries on a Neo4j graph database.</p>
+    <p>A cypher query can be defined on the node or can be passed in <code>msg.query</code>. The query can be parameterized and the parameters can be passed in <code>msg.params</code> as JSON (string or object).</p>
+    <p>Outputs:
+      <ul>
+        <li><code>1:</code>If the query returns a single record, it is returned in output #1 as an object (with the Neo4j node properties) in <code>msg.payload</code></li>
+        <li><code>2:</code>If the query returns a multiple records, they are returned in output #2 as an array of objects in <code>msg.payload</code></li>
+      </ul>
+    </p>
+
+    <p>
+        Supported by <a href="nulli.com">Nulli</a>
+    </p>
+</script>

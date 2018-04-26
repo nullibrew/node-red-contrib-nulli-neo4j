@@ -1,0 +1,29 @@
+{
+  "name": "nulli-neo4j",
+  "version": "1.0.0",
+  "description": "Node RED node for neo4j",
+  "main": "neo4j.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "schaturvedi@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "neo4j-driver": "latest"
+  },
+  "keywords": [
+    "node-red",
+    "nodered",
+    "neo4j",
+    "cypher"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandman0/node-red-contrib-nulli-neo4j.git"
+  },
+  "node-red": {
+    "nodes": {
+      "nulli-neo4j": "neo4j.js"
+    }
+  }
+}
