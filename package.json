@@ -1,5 +1,5 @@
 {
-  "name": "nulli-neo4j",
+  "name": "node-red-contrib-nulli-neo4j",
   "version": "1.0.0",
   "description": "Node RED node for neo4j",
   "main": "neo4j.js",
