@@ -23,7 +23,7 @@
   },
   "node-red": {
     "nodes": {
-      "nulli-neo4j": "neo4j.js"
+      "node-red-contrib-nulli-neo4j": "neo4j.js"
     }
   }
 }
