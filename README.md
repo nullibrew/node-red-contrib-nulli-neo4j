@@ -15,27 +15,29 @@ You can define the Neo4j bolt URL and the basic authentication username and pass
 
 You can also specify a cypher query in the configuration. The parameters for the query (if needed) are read from `msg.params`. The cypher query can also be passed to the node as `msg.query`. Below are some examples:
 
-1. Example of hard coded query in the configuration of the node.
+* Example of hard coded query in the configuration of the node.
 ```
 MATCH (m:Movie {title: "Forrest Gump"}) return m
 ```
 
-2. Example of a parameterized query.
-```
+* Example of a parameterized query.
 Query in the configuration:
-
+```
 MATCH (m:Movie {title: $moviename}) return m
+```
 
 msg.params:
+```
 {"moviename": "Forrest Gump"}
 ```
 
-3. Example of both query and params being passed in `msg`
-```
+* Example of both query and params being passed in `msg`
 msg.query:
+```
 MATCH (m:Movie {title: $moviename}) return m
 
 msg.params:
+```
 {"moviename": "Forrest Gump"}
 ```
 
