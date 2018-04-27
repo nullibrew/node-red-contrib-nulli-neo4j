@@ -15,9 +15,9 @@ You can define the Neo4j bolt URL and the basic authentication username and pass
 
 You can also specify a cypher query in the configuration. The parameters for the query (if needed) are read from `msg.params`. The cypher query can also be passed to the node as `msg.query`. Below are some examples:
 
-1. Example of hard coded query in the configuratiob of the node.
+1. Example of hard coded query in the configuration of the node.
 ```
-MATCH (m:Movie {title: 'Forrest Gump'}) return m
+MATCH (m:Movie {title: "Forrest Gump"}) return m
 ```
 
 2. Example of a parameterized query.
@@ -26,14 +26,17 @@ Query in the configuration:
 
 MATCH (m:Movie {title: $moviename}) return m
 
-msg.params = '{"moviename": "Forrest Gump"}'
+msg.params:
+{"moviename": "Forrest Gump"}
 ```
 
 3. Example of both query and params being passed in `msg`
 ```
-msg.query = 'MATCH (m:Movie {title: $moviename}) return m'
+msg.query:
+MATCH (m:Movie {title: $moviename}) return m
 
-msg.params = '{"moviename": "Forrest Gump"}'
+msg.params:
+{"moviename": "Forrest Gump"}
 ```
 
 The node has two outputs. If the query returns only 1 record, the requested properties of the node are sent to output #1. If the query returns multiple records, an array of requested properties of the nodes are sent to output #2.
