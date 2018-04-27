@@ -32,9 +32,11 @@ msg.params:
 ```
 
 * Example of both query and params being passed in `msg`
+
 msg.query:
 ```
 MATCH (m:Movie {title: $moviename}) return m
+```
 
 msg.params:
 ```
