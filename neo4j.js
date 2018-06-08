@@ -22,9 +22,6 @@ module.exports = function (RED) {
                     params = msg.params;
                 }
                 //console.log(`params: ${params}`);
-                var scalar_result = {
-                    payload: null
-                };
                 const resultPromise = session.run(query, params);
 
                 var array_result = {
@@ -36,12 +33,11 @@ module.exports = function (RED) {
                         result.records.forEach(function (item, index, array) {
                             array_result.payload.push(item.get(0).properties);
                         });
-                        //console.log(`array size: ${array_result.payload.length}`)
-                        node.send([null, array_result]);
+                        msg.payload = array_result.payload;
+                        node.send([null, msg]);
                     } else {
-                        scalar_result.payload = result.records[0].get(0).properties;
-                        //msg.payload = result.records;
-                        node.send([scalar_result, null]);
+                        msg.payload = result.records[0].get(0).properties;
+                        node.send([msg, null]);
 
                     }
                 });
